@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>MyChat</title>
+        <link rel="stylesheet" type="text/css" href="assets/css/controlStyles.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/chatStyles.css">
+        <script src="assets/libs/jquery-3.3.1.min.js"></script>
+    </head>
+    
+    <body>
+        <div class = "headerSpace">
+            <img src='assets/images/chat.png' height=100/>
+            <text>MyChat</text>
+        </div>
+        <div class = "chatSpace">
+        </div>
+    </body>
+    <script src = "assets/scripts/chatCreation.js"></script>
+    <script src = "assets/scripts/mockData.js"></script>
+    <script src = "assets/scripts/chatOperations.js"></script>
+    <script>
+        if(JSON.parse(sessionStorage.getItem('chatHistory') === null)) {
+            sendGetRequest('Hello there', chatBotResponse);
+        }
+        else if(JSON.parse(sessionStorage.getItem('chatHistory')).length !== 0) {
+            chatData = JSON.parse(sessionStorage.getItem('chatHistory'));
+        }
+        createChatBox('Promit');
+        
+    </script>
+    
+</html>
